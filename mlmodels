@@ -1,4 +1,3 @@
-Linear Regression
     Logistic Regression-
     Decision Tree-
     Random Forest-
@@ -8,13 +7,12 @@ Linear Regression
     CatBoost-
     Support Vector Machines (SVM)-
     K-Nearest Neighbors (KNN)-
-    Naive Bayes
+    Naive Bayes-
     Neural Networks (Multi-layer Perceptron)-
-    Convolutional Neural Networks (CNN)
+    Convolutional Neural Networks (CNN)-
     Recurrent Neural Networks (RNN)-
     Long Short-Term Memory (LSTM)
     Gated Recurrent Unit (GRU)-
-    Extreme Gradient Boosting (XGBoost)
+    Extreme Gradient Boosting (XGBoost)-
     Autoencoders-
-    Principal Component Analysis (PCA)
-    xxx-
+    Principal Component Analysis (PCA)-
