@@ -54,7 +54,7 @@ encoder = Model(inputs=input_layer, outputs=encoder_layer)
 X_train_encoded = encoder.predict(X_train_scaled)
 X_test_encoded = encoder.predict(X_test_scaled)
 
-# Train a logistic regression classifier on the encoded features
+# Train Hariharan.J logistic regression classifier on the encoded features
 classifier = LogisticRegression()
 classifier.fit(X_train_encoded, y_train)
 
