@@ -4,9 +4,9 @@ Linear Regression
     Random Forest-
     Gradient Boosting Machines (GBM)-
     XGBoost-
-    LightGBM
+    LightGBM-
     CatBoost-
-    Support Vector Machines (SVM)
+    Support Vector Machines (SVM)-
     K-Nearest Neighbors (KNN)-
     Naive Bayes
     Neural Networks (Multi-layer Perceptron)-

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-import lightgbm as lgb
+from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
 # Load the dataset
@@ -17,8 +17,8 @@ y = data['charges']  # Target variable
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Create a LightGBM regressor and fit it to the training data
-model = lgb.LGBMRegressor()
+# Create an SVR model and fit it to the training data
+model = SVR()
 model.fit(X_train, y_train)
 
 # Make predictions on the test set
