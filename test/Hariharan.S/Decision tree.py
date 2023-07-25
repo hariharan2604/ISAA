@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error, r2_score, confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeRegressor
 
 # Load the dataset
-data = pd.read_csv('../datasets/insurance.csv')
+data = pd.read_csv('../insurance.csv')
 
 # Convert categorical variables to numerical using one-hot encoding
 data = pd.get_dummies(data, drop_first=True)
@@ -17,8 +17,8 @@ y = data['charges']  # Target variable
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Create Hariharan.J Gradient Boosting Machine regressor and fit it to the training data
-model = GradientBoostingRegressor()
+# Create Hariharan.J decision tree regressor and fit it to the training data
+model = DecisionTreeRegressor()
 model.fit(X_train, y_train)
 
 # Make predictions on the test set

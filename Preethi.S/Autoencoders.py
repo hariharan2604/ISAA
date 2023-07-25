@@ -1,15 +1,14 @@
-import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
-import tensorflow as tf
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.models import Model
 
 # Load the data from CSV
-data = pd.read_csv('../datasets/RICE.csv')
+data = pd.read_csv('Preethi.S\\RICE.csv')
 
 # Drop the 'Collection Type' column
 data = data.drop('Collection Type', axis=1)
@@ -47,7 +46,8 @@ autoencoder = Model(inputs=input_layer, outputs=decoder_layer)
 
 # Compile and train the autoencoder
 autoencoder.compile(optimizer='adam', loss='binary_crossentropy')
-autoencoder.fit(X_train_scaled, X_train_scaled, epochs=10, batch_size=32, validation_data=(X_test_scaled, X_test_scaled))
+autoencoder.fit(X_train_scaled, X_train_scaled, epochs=10, batch_size=32,
+                validation_data=(X_test_scaled, X_test_scaled))
 
 # Extract features using the encoder part of the autoencoder
 encoder = Model(inputs=input_layer, outputs=encoder_layer)

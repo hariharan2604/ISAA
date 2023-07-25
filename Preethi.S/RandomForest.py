@@ -1,14 +1,16 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 # Load the dataset
-data = pd.read_csv('../datasets/RICE.csv')
+data = pd.read_csv('Preethi.S/RICE.csv')
 
 # Select the features (input) and target variable (output)
-X = data[['Observation Year', 'Standard Week', 'Collection Type', 'MaxT', 'MinT', 'RH1(%)', 'RH2(%)', 'RF(mm)', 'WS(kmph)', 'SSH(hrs)', 'EVP(mm)', 'Location']]
+X = data[
+    ['Observation Year', 'Standard Week', 'Collection Type', 'MaxT', 'MinT', 'RH1(%)', 'RH2(%)', 'RF(mm)', 'WS(kmph)',
+     'SSH(hrs)', 'EVP(mm)', 'Location']]
 y = data['Pest Value']
 
 # Convert categorical features to numerical using one-hot encoding

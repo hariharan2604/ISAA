@@ -1,11 +1,12 @@
 import numpy as np
 import pandas as pd
+from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precision_score, recall_score, f1_score, \
+    confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVR
-from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
 # Load the dataset
-data = pd.read_csv('../datasets/insurance.csv')
+data = pd.read_csv('../insurance.csv')
 
 # Convert categorical variables to numerical using one-hot encoding
 data = pd.get_dummies(data, drop_first=True)

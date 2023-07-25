@@ -1,13 +1,13 @@
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
 from sklearn.decomposition import PCA
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
 
 # Load the dataset
-data = pd.read_csv('../datasets/Microsoft Stocks.csv')
+data = pd.read_csv('../Microsoft Stocks.csv')
 
 # Extract features and labels
 X = data[['Open', 'High', 'Low', 'Volume']].values

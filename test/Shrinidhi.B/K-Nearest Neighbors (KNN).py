@@ -1,10 +1,10 @@
 import pandas as pd
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_recall_fscore_support, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix, precision_recall_fscore_support, roc_auc_score
 
 # Load the dataset from CSV
-df = pd.read_csv("../datasets/AQI and Lat Long of Countries.csv")
+df = pd.read_csv("../AQI and Lat Long of Countries.csv")
 
 # Select the relevant columns as features (X) and the target variable (y)
 X = df[['AQI Value', 'CO AQI Value', 'Ozone AQI Value', 'NO2 AQI Value', 'PM2.5 AQI Value']]

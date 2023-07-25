@@ -1,13 +1,13 @@
 import pandas as pd
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score
-from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, GRU
+from tensorflow.keras.models import Sequential
 from tensorflow.keras.utils import to_categorical
 
 # Step 1: Read the CSV file
-df = pd.read_csv('../datasets/RICE.csv')
+df = pd.read_csv('Preethi.S/RICE.csv')
 
 # Step 2: Preprocess the Data
 target_columns = ['Pest Name', 'Location']  # Update with your target column names
@@ -54,8 +54,8 @@ f1 = f1_score(y_test_labels, y_pred_labels, average='macro')
 auc_roc = roc_auc_score(to_categorical(y_test, num_classes=len(le.classes_)), y_pred, multi_class='ovr')
 
 # Step 9: Print the evaluation metrics
-print("Accuracy:", accuracy)
 print("Confusion Matrix:\n", confusion_mat)
+print("Accuracy:", accuracy)
 print("Precision:", precision)
 print("Recall:", recall)
 print("F1 Score:", f1)

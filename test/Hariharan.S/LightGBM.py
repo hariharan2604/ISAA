@@ -1,11 +1,12 @@
+import lightgbm as lgb
 import numpy as np
 import pandas as pd
+from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precision_score, recall_score, f1_score, \
+    confusion_matrix
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import mean_squared_error, r2_score, confusion_matrix
 
 # Load the dataset
-data = pd.read_csv('../datasets/insurance.csv')
+data = pd.read_csv('../insurance.csv')
 
 # Convert categorical variables to numerical using one-hot encoding
 data = pd.get_dummies(data, drop_first=True)
@@ -17,8 +18,8 @@ y = data['charges']  # Target variable
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Create Hariharan.J decision tree regressor and fit it to the training data
-model = DecisionTreeRegressor()
+# Create a LightGBM regressor and fit it to the training data
+model = lgb.LGBMRegressor()
 model.fit(X_train, y_train)
 
 # Make predictions on the test set
@@ -40,17 +41,15 @@ y_pred_binary = np.where(y_pred >= median, 1, 0)
 y_test_binary = np.where(y_test >= median, 1, 0)
 
 # Calculate classification performance metrics
-accuracy = np.mean(y_pred_binary == y_test_binary)
-precision = np.sum((y_pred_binary == 1) & (y_test_binary == 1)) / np.sum(y_pred_binary == 1)
-recall = np.sum((y_pred_binary == 1) & (y_test_binary == 1)) / np.sum(y_test_binary == 1)
-specificity = np.sum((y_pred_binary == 0) & (y_test_binary == 0)) / np.sum(y_test_binary == 0)
-f1 = 2 * precision * recall / (precision + recall)
+accuracy = accuracy_score(y_test_binary, y_pred_binary)
+precision = precision_score(y_test_binary, y_pred_binary)
+recall = recall_score(y_test_binary, y_pred_binary)
+f1 = f1_score(y_test_binary, y_pred_binary)
 confusion_mat = confusion_matrix(y_test_binary, y_pred_binary)
 
 # Display classification performance metrics
 print("Accuracy:", accuracy)
 print("Precision:", precision)
 print("Recall:", recall)
-print("Specificity:", specificity)
 print("F1 Score:", f1)
 print("Confusion Matrix:\n", confusion_mat)
